@@ -106,7 +106,7 @@ export const homePage = defineType({
       description: "Each entry is shown on its own line. Default: \"We don't just\" / \"capture moments.\"",
       validation: (r) => r.max(4),
     }),
-    defineField({ name: "heroAccentLine", title: "Hero accent line", type: "string", group: "hero", description: "Shown in italic gold, e.g. \"We make them timeless.\"" }),
+    defineField({ name: "heroAccentLine", title: "Hero accent line", type: "string", group: "hero", description: "Shown highlighted in lime, e.g. \"the scroll.\"" }),
     defineField({ name: "heroSupporting", title: "Supporting text", type: "text", rows: 2, group: "hero" }),
     defineField({ name: "primaryCtaLabel", title: "Primary button label", type: "string", group: "hero" }),
     defineField({ name: "secondaryCtaLabel", title: "Secondary button label", type: "string", group: "hero" }),

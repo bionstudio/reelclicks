@@ -24,7 +24,7 @@ export default async function TeamPage() {
         label="Team"
         title={
           <>
-            The people behind <em className="text-gold-soft">the lens.</em>
+            The people behind <em>the lens.</em>
           </>
         }
         intro="Talk to us directly — the people who plan your shoot are the people you speak to."

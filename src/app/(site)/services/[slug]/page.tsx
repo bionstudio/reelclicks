@@ -49,7 +49,7 @@ export default async function ServicePage({ params }: Props) {
         ])}
       />
       <div className="shell pt-[calc(var(--header-h)+3rem)]">
-        <Link href="/services" className="label inline-flex items-center gap-2 text-paper hover:text-gold">
+        <Link href="/services" className="label inline-flex items-center gap-2 text-paper hover:text-lime">
           <ArrowLeft size={14} /> All services
         </Link>
       </div>
@@ -62,7 +62,7 @@ export default async function ServicePage({ params }: Props) {
         <section data-section="Related films" aria-labelledby="related-title" className="border-t border-line py-24 md:py-32">
           <div className="shell">
             <SectionLabel index="002" title="Related films" />
-            <h2 id="related-title" className="display mb-16 mt-8 text-big uppercase">
+            <h2 id="related-title" className="display mb-16 mt-8 text-big">
               Recent {service.shortTitle.toLowerCase()} work
             </h2>
             <WorkGrid projects={related} showFilters={false} />
@@ -75,11 +75,11 @@ export default async function ServicePage({ params }: Props) {
           <Link href={`/services/${next.slug}`} className="group shell flex items-end justify-between gap-8 py-20 md:py-28">
             <span>
               <span className="label block">Next — {next.number}</span>
-              <span className="display mt-6 block text-giant uppercase leading-none transition-colors duration-500 group-hover:text-gold-soft">
+              <span className="display mt-6 block text-giant leading-none transition-colors duration-500 group-hover:text-lime">
                 {next.shortTitle}
               </span>
             </span>
-            <span className="mb-3 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line-strong transition-all duration-500 group-hover:rotate-45 group-hover:border-gold md:h-24 md:w-24">
+            <span className="mb-3 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line-strong transition-all duration-500 group-hover:rotate-45 group-hover:border-lime md:h-24 md:w-24">
               <ArrowUpRight strokeWidth={1.25} />
             </span>
           </Link>

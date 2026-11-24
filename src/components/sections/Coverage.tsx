@@ -9,8 +9,8 @@ export function Coverage({ index = "006" }: { index?: string }) {
     <span className="flex shrink-0 items-center">
       {places.map((p, i) => (
         <span key={i} className="flex items-center">
-          <span className={i === places.length - 1 ? "italic text-gold-soft" : i % 2 ? "text-outline" : ""}>{p}</span>
-          <span aria-hidden className="mx-[0.4em] inline-block h-[0.12em] w-[0.12em] rounded-full bg-gold align-middle" />
+          <span className={i === places.length - 1 ? "text-lime" : i % 2 ? "text-outline" : ""}>{p}</span>
+          <span aria-hidden className="mx-[0.4em] inline-block h-[0.12em] w-[0.12em] rounded-full bg-lime align-middle" />
         </span>
       ))}
     </span>
@@ -21,7 +21,7 @@ export function Coverage({ index = "006" }: { index?: string }) {
       <div className="shell mb-12 flex flex-wrap items-end justify-between gap-6 md:mb-16">
         <div>
           <SectionLabel index={index} title="On location" />
-          <RevealText as="h2" id="coverage-title" className="display mt-8 text-big uppercase">
+          <RevealText as="h2" id="coverage-title" className="display mt-8 text-big">
             Wherever the story is.
           </RevealText>
         </div>
@@ -30,7 +30,7 @@ export function Coverage({ index = "006" }: { index?: string }) {
         </p>
       </div>
       <div aria-hidden className="flex whitespace-nowrap">
-        <div className="marquee-track display flex text-[clamp(3rem,9vw,9rem)] uppercase leading-none">
+        <div className="marquee-track display flex text-[clamp(3rem,9vw,9rem)] leading-none">
           {row}
           {row}
         </div>

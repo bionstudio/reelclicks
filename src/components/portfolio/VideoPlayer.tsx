@@ -124,10 +124,10 @@ export function VideoPlayer({ video, poster, title, autoPlay = false, className,
             />
           )}
           <span className="absolute inset-0 bg-ink/30 transition-colors duration-700 group-hover/play:bg-ink/10" />
-          <span className="relative flex h-24 w-24 items-center justify-center rounded-full border border-paper/40 backdrop-blur-sm transition-all duration-700 ease-[var(--ease-out-expo)] group-hover/play:scale-110 group-hover/play:border-gold md:h-32 md:w-32">
-            <Play size={22} strokeWidth={1.25} className="ml-1 fill-paper" />
+          <span className="relative flex h-24 w-24 items-center justify-center rounded-full bg-lime text-ink shadow-[0_20px_60px_-15px_rgb(215_255_58/0.6)] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/play:scale-110 max-sm:h-16 max-sm:w-16 md:h-32 md:w-32">
+            <Play size={30} strokeWidth={0} className="ml-1.5 fill-ink" />
           </span>
-          <span className="label absolute bottom-6 left-6 text-paper">{playLabel}</span>
+          <span className="chip absolute bottom-6 left-6 border-paper/25 bg-ink/40 backdrop-blur-md max-sm:hidden">{playLabel}</span>
         </button>
       )}
 
@@ -162,7 +162,7 @@ export function VideoPlayer({ video, poster, title, autoPlay = false, className,
           />
 
           {buffering && (
-            <span className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 animate-spin rounded-full border border-paper/20 border-t-gold" />
+            <span className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 animate-spin rounded-full border border-paper/20 border-t-lime" />
           )}
 
           {/* Controls */}
@@ -183,11 +183,11 @@ export function VideoPlayer({ video, poster, title, autoPlay = false, className,
               }}
               aria-label="Seek"
               aria-valuetext={`${formatTime(time)} of ${formatTime(duration)}`}
-              className="block h-4 w-full cursor-pointer appearance-none bg-transparent [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-gold [&::-webkit-slider-runnable-track]:h-px [&::-webkit-slider-runnable-track]:bg-[linear-gradient(to_right,var(--color-gold)_var(--p),rgb(245_243_239/0.25)_var(--p))] [&::-webkit-slider-thumb]:-mt-[5.5px] [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gold [&::-moz-range-track]:h-px [&::-moz-range-track]:bg-paper/25 [&::-moz-range-progress]:h-px [&::-moz-range-progress]:bg-gold"
+              className="block h-4 w-full cursor-pointer appearance-none bg-transparent [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-lime [&::-webkit-slider-runnable-track]:h-px [&::-webkit-slider-runnable-track]:bg-[linear-gradient(to_right,var(--color-lime)_var(--p),rgb(245_243_239/0.25)_var(--p))] [&::-webkit-slider-thumb]:-mt-[5.5px] [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-lime [&::-moz-range-track]:h-px [&::-moz-range-track]:bg-paper/25 [&::-moz-range-progress]:h-px [&::-moz-range-progress]:bg-lime"
               style={{ ["--p" as string]: `${duration ? (time / duration) * 100 : 0}%` }}
             />
             <div className="mt-3 flex items-center gap-5">
-              <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play"} className="text-paper hover:text-gold">
+              <button type="button" onClick={toggle} aria-label={playing ? "Pause" : "Play"} className="text-paper hover:text-lime">
                 {playing ? <Pause size={18} strokeWidth={1.5} /> : <Play size={18} strokeWidth={1.5} />}
               </button>
               <button
@@ -198,7 +198,7 @@ export function VideoPlayer({ video, poster, title, autoPlay = false, className,
                   setMuted(el.current.muted);
                 }}
                 aria-label={muted ? "Unmute" : "Mute"}
-                className="text-paper hover:text-gold"
+                className="text-paper hover:text-lime"
               >
                 {muted ? <VolumeX size={18} strokeWidth={1.5} /> : <Volume2 size={18} strokeWidth={1.5} />}
               </button>
@@ -210,7 +210,7 @@ export function VideoPlayer({ video, poster, title, autoPlay = false, className,
                 type="button"
                 onClick={toggleFullscreen}
                 aria-label={fullscreen ? "Exit fullscreen" : "Fullscreen"}
-                className="ml-auto text-paper hover:text-gold sm:ml-0"
+                className="ml-auto text-paper hover:text-lime sm:ml-0"
               >
                 {fullscreen ? <Minimize size={18} strokeWidth={1.5} /> : <Maximize size={18} strokeWidth={1.5} />}
               </button>

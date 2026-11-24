@@ -28,17 +28,18 @@ export function RevealMask({
       const inner = el.querySelector<HTMLElement>("[data-mask-inner]");
       const mm = gsap.matchMedia();
       mm.add(MOTION_OK, () => {
+        const r = " round 1.75rem";
         const from = {
-          up: "inset(100% 0% 0% 0%)",
-          down: "inset(0% 0% 100% 0%)",
-          left: "inset(0% 0% 0% 100%)",
-          right: "inset(0% 100% 0% 0%)",
+          up: "inset(100% 0% 0% 0%" + r + ")",
+          down: "inset(0% 0% 100% 0%" + r + ")",
+          left: "inset(0% 0% 0% 100%" + r + ")",
+          right: "inset(0% 100% 0% 0%" + r + ")",
         }[direction];
         gsap.fromTo(
           el,
           { clipPath: from },
           {
-            clipPath: "inset(0% 0% 0% 0%)",
+            clipPath: "inset(0% 0% 0% 0%" + r + ")",
             duration: 1.6,
             ease: "expo.inOut",
             delay,
@@ -72,7 +73,7 @@ export function RevealMask({
   );
 
   return (
-    <div ref={ref} className={cn("relative overflow-hidden", className)} style={style}>
+    <div ref={ref} className={cn("card relative bg-ink-2", className)} style={style}>
       <div data-mask-inner className="absolute inset-0 will-change-transform">
         <div className={cn("absolute inset-0", parallax ? "-top-[12%] -bottom-[12%]" : "")}>{children}</div>
       </div>

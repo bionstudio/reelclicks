@@ -84,7 +84,7 @@ export function VideoLightbox({
               type="button"
               onClick={onClose}
               data-autofocus
-              className="label flex items-center gap-3 text-paper hover:text-gold"
+              className="label flex items-center gap-3 text-paper hover:text-lime"
               aria-label="Close film"
             >
               Close
@@ -133,14 +133,14 @@ export function VideoLightbox({
               <Link
                 href={`/work/${project.slug}`}
                 onClick={onClose}
-                className="label mr-2 flex items-center gap-2 text-paper hover:text-gold"
+                className="label mr-2 flex items-center gap-2 text-paper hover:text-lime"
               >
                 Project details <ArrowUpRight size={14} />
               </Link>
               <button
                 type="button"
                 onClick={() => onNavigate(((index ?? 0) - 1 + projects.length) % projects.length)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-gold"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-lime"
                 aria-label="Previous film"
               >
                 <ArrowLeft size={16} strokeWidth={1.5} />
@@ -148,7 +148,7 @@ export function VideoLightbox({
               <button
                 type="button"
                 onClick={() => onNavigate(((index ?? 0) + 1) % projects.length)}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-gold"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-lime"
                 aria-label="Next film"
               >
                 <ArrowRight size={16} strokeWidth={1.5} />

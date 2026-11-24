@@ -28,7 +28,7 @@ export function Timecode({ className }: { className?: string }) {
 
   return (
     <span className={className} aria-hidden>
-      <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#d4543f] align-middle" />
+      <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-lime align-middle" />
       REC <span ref={ref}>00:00:00:00</span>
     </span>
   );

@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils/cn";
 
 /**
- * Film-slate section marker, e.g.  ● FR.002 — THE STORY
- * The `data-section` attribute feeds the fixed desktop section indicator.
+ * Section tag, e.g.  [● The story]  02
+ * The `data-section` attribute on the parent section feeds the desktop section indicator.
  */
 export function SectionLabel({
   index,
@@ -13,14 +13,31 @@ export function SectionLabel({
   index: string;
   title: string;
   className?: string;
-  tone?: "default" | "gold";
+  /** "lime" = filled lime chip, "dark" = for use on a lime background */
+  tone?: "default" | "lime" | "dark";
 }) {
+  const n = String(Number(index) || index).padStart(2, "0");
   return (
-    <p className={cn("label flex items-center gap-3", className)}>
-      <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
-      <span className={tone === "gold" ? "text-gold" : "text-paper"}>FR.{index}</span>
-      <span aria-hidden className="h-px w-8 bg-line-strong" />
-      <span>{title}</span>
+    <p className={cn("flex items-center gap-3", className)}>
+      <span
+        className={cn(
+          "chip",
+          tone === "lime" && "border-lime bg-lime text-ink",
+          tone === "dark" && "border-ink/25 text-ink",
+        )}
+      >
+        <span
+          aria-hidden
+          className={cn(
+            "relative inline-flex h-2 w-2 rounded-full",
+            tone === "default" ? "bg-lime" : "bg-ink",
+          )}
+        />
+        {title}
+      </span>
+      <span aria-hidden className={cn("font-mono text-xs tabular-nums", tone === "dark" ? "text-ink/55" : "text-mute-2")}>
+        /{n}
+      </span>
     </p>
   );
 }

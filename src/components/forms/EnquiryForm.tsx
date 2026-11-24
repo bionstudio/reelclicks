@@ -137,11 +137,11 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="border border-line p-8 outline-none md:p-14"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gold text-ink">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-lime text-ink">
               <Check size={22} strokeWidth={1.75} />
             </span>
-            <h3 className="display mt-8 text-[clamp(2.25rem,4vw,3.75rem)] uppercase leading-none">
-              Thank you — <em className="text-gold-soft">scene one</em> begins.
+            <h3 className="display mt-8 text-[clamp(2.25rem,4vw,3.75rem)] leading-none">
+              Thank you — <em>scene one</em> begins.
             </h3>
             <p className="mt-6 max-w-md text-mute">
               Your enquiry has reached our team. We&apos;ll get back to you soon. For anything urgent, WhatsApp us directly.
@@ -151,7 +151,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
                 href={`https://wa.me/${site.people.founder.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-13 items-center gap-3 rounded-full bg-gold px-7 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink hover:bg-gold-soft"
+                className="inline-flex h-13 items-center gap-3 rounded-full bg-lime px-7 text-[0.95rem] font-bold text-ink hover:bg-paper"
               >
                 <WhatsAppIcon size={16} /> WhatsApp
               </a>
@@ -161,7 +161,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
                   startedAt.current = Date.now();
                   setStatus({ kind: "idle" });
                 }}
-                className="inline-flex h-13 items-center rounded-full border border-line-strong px-7 font-mono text-[0.72rem] uppercase tracking-[0.18em] hover:border-gold"
+                className="inline-flex h-13 items-center rounded-full border border-line-strong px-7 text-[0.95rem] font-bold hover:border-lime"
               >
                 Send another
               </button>
@@ -270,7 +270,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
                 >
                   <div className="border-l-2 border-[#e08f78] bg-[#e08f78]/5 px-5 py-4 text-sm text-paper/90">
                     {status.message}{" "}
-                    <a href={whatsappFromForm()} target="_blank" rel="noopener noreferrer" className="link-draw text-gold-soft">
+                    <a href={whatsappFromForm()} target="_blank" rel="noopener noreferrer" className="link-draw text-lime">
                       Send these details on WhatsApp →
                     </a>
                   </div>
@@ -282,7 +282,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group/btn inline-flex h-14 items-center justify-center gap-3 rounded-full bg-paper px-9 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-gold-soft disabled:opacity-60"
+                className="group/btn inline-flex h-14 items-center justify-center gap-3 rounded-full bg-lime px-9 text-[0.95rem] font-bold text-ink transition-colors hover:bg-paper disabled:opacity-60"
               >
                 {isSubmitting ? (
                   <>
@@ -291,7 +291,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
                 ) : (
                   <>
                     <RollingLabel>Send enquiry</RollingLabel>
-                    <ArrowUpRight size={15} strokeWidth={1.5} className="transition-transform duration-500 group-hover/btn:rotate-45" />
+                    <ArrowUpRight size={17} strokeWidth={2.25} className="transition-transform duration-500 group-hover/btn:rotate-45" />
                   </>
                 )}
               </button>
@@ -303,7 +303,7 @@ export function EnquiryForm({ services }: { services: { slug: string; title: str
                 }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="label flex items-center gap-2 text-paper hover:text-gold"
+                className="label flex items-center gap-2 text-paper hover:text-lime"
               >
                 <WhatsAppIcon size={16} /> Prefer WhatsApp? Send these details
               </a>

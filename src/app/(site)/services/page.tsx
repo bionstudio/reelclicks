@@ -25,7 +25,7 @@ export default async function ServicesPage() {
         label="Services"
         title={
           <>
-            What we <em className="text-gold-soft">make.</em>
+            What we <em>make.</em>
           </>
         }
         intro="Eight crafts, one standard. Whether it's a wedding, a brand or a boardroom, every production is planned, shot and finished with cinematic care."
@@ -35,7 +35,7 @@ export default async function ServicesPage() {
               {services.map((s) => (
                 <li key={s.id}>
                   <Link href={`#${s.slug}`} className="flex gap-4 text-mute hover:text-paper">
-                    <span className="text-gold">{s.number}</span> {s.shortTitle}
+                    <span className="text-lime">{s.number}</span> {s.shortTitle}
                   </Link>
                 </li>
               ))}

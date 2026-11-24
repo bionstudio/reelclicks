@@ -11,15 +11,15 @@ export async function SiteFooter() {
 
   return (
     <FooterReveal>
-      <footer className="relative overflow-hidden border-t border-line bg-ink-2" aria-labelledby="footer-heading">
+      <footer className="relative overflow-hidden rounded-t-[2rem] border-t border-line bg-ink-2 md:rounded-t-[3rem]" aria-labelledby="footer-heading">
         <div className="shell pt-24 md:pt-32">
-          <p className="label mb-8 flex items-center gap-3">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold" /> End credits
+          <p className="chip mb-8 w-fit">
+            <span className="h-2 w-2 rounded-full bg-lime" /> That&apos;s a wrap
           </p>
-          <h2 id="footer-heading" className="display text-giant uppercase" data-footer-headline>
+          <h2 id="footer-heading" className="display text-giant" data-footer-headline>
             Let&apos;s create
             <br />
-            something <em className="text-gold-soft">timeless.</em>
+            something <span className="mark">epic.</span>
           </h2>
 
           <div className="mt-14 flex flex-wrap gap-4">
@@ -27,13 +27,13 @@ export async function SiteFooter() {
               href={whatsappHref(site.people.founder.whatsapp)}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex h-13 items-center gap-3 rounded-full bg-gold px-7 font-mono text-[0.72rem] uppercase tracking-[0.18em] text-ink transition-colors hover:bg-gold-soft"
+              className="group inline-flex h-13 items-center gap-3 rounded-full bg-lime px-7 text-[0.95rem] font-bold text-ink transition-colors hover:bg-paper"
             >
               <WhatsAppIcon size={17} /> WhatsApp us
             </a>
             <Link
               href="/contact"
-              className="inline-flex h-13 items-center rounded-full border border-line-strong px-7 font-mono text-[0.72rem] uppercase tracking-[0.18em] transition-colors hover:border-gold hover:text-gold-soft"
+              className="inline-flex h-13 items-center rounded-full border border-line-strong px-7 text-[0.95rem] font-bold transition-colors hover:border-paper hover:bg-paper hover:text-ink"
             >
               Start an enquiry
             </Link>
@@ -48,12 +48,12 @@ export async function SiteFooter() {
               <p className="label mt-8">
                 {site.locations.join(" · ")}
                 <br />
-                <span className="text-gold">{site.coverage}</span>
+                <span className="text-lime">{site.coverage}</span>
               </p>
             </div>
 
             <nav aria-label="Footer" className="lg:col-span-2">
-              <p className="label mb-5 text-paper">Index</p>
+              <p className="label mb-5 text-paper">Explore</p>
               <ul className="space-y-2.5">
                 {navLinks.map((l) => (
                   <li key={l.href}>
@@ -99,7 +99,7 @@ export async function SiteFooter() {
                   </a>
                 </li>
                 <li className="flex gap-4 pt-1">
-                  <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gold">
+                  <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-lime">
                     <InstagramIcon size={20} />
                   </a>
                   <a
@@ -107,7 +107,7 @@ export async function SiteFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="WhatsApp"
-                    className="hover:text-gold"
+                    className="hover:text-lime"
                   >
                     <WhatsAppIcon size={20} />
                   </a>
@@ -118,7 +118,7 @@ export async function SiteFooter() {
         </div>
 
         <div aria-hidden className="pointer-events-none mt-16 select-none overflow-hidden">
-          <p className="display text-outline whitespace-nowrap text-center text-[19.5vw] leading-[0.78] uppercase">Reelclicks</p>
+          <p className="display whitespace-nowrap text-center text-[21vw] leading-[0.8] tracking-[-0.06em] text-lime">reelclicks</p>
         </div>
 
         <div className="shell flex flex-col items-start justify-between gap-4 border-t border-line py-6 sm:flex-row sm:items-center">

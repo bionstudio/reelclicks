@@ -26,13 +26,13 @@ export default async function WorkPage() {
         label="The work"
         title={
           <>
-            Every frame, <em className="text-gold-soft">a story.</em>
+            Every frame, <em>a story.</em>
           </>
         }
         intro="A selection of films across weddings, brands, corporate productions, events, travel and social content. Press play on any frame."
         aside={
           hasSamples ? (
-            <p className="label border-l border-gold/40 pl-4 leading-relaxed">
+            <p className="label border-l border-lime/40 pl-4 leading-relaxed">
               Films marked <span className="sample-badge mx-1">Sample</span> are demonstration pieces showing how projects are presented. Real REELCLICKS
               films are added through the Studio.
             </p>

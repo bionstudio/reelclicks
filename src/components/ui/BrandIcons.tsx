@@ -27,11 +27,14 @@ export function WhatsAppIcon({ size = 18, ...p }: SVGProps<SVGSVGElement> & { si
 export function Wordmark({ className, compact = false }: { className?: string; compact?: boolean }) {
   return (
     <span className={className} aria-label="REELCLICKS.IN">
-      <span aria-hidden className="font-display tracking-[0.02em]">
-        {compact ? "RC" : "REELCLICKS"}
-      </span>
-      <span aria-hidden className="font-mono text-[0.55em] tracking-[0.1em] text-gold align-top ml-0.5">
-        .IN
+      <span aria-hidden className="inline-flex items-center gap-[0.3em] font-display font-[800] tracking-[-0.05em]">
+        <span className="relative inline-flex h-[0.95em] w-[0.95em] items-center justify-center rounded-full bg-lime">
+          <span className="ml-[0.08em] h-0 w-0 border-y-[0.2em] border-l-[0.32em] border-y-transparent border-l-ink" />
+        </span>
+        <span>
+          {compact ? "RC" : "reelclicks"}
+          <span className="text-lime">.in</span>
+        </span>
       </span>
     </span>
   );

@@ -32,7 +32,7 @@ export function WhatsAppFloat() {
       aria-label="Enquire on WhatsApp"
       tabIndex={visible ? 0 : -1}
       className={cn(
-        "fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-gold/40 bg-ink/80 text-gold-soft backdrop-blur-md transition-all duration-700 ease-[var(--ease-out-expo)] hover:bg-gold hover:text-ink md:bottom-8 md:right-8",
+        "fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-lime text-ink ring-4 ring-ink shadow-[0_12px_40px_-10px_rgb(215_255_58/0.55)] transition-all duration-700 ease-[var(--ease-out-expo)] hover:scale-110 hover:bg-paper md:bottom-8 md:right-8",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0",
       )}
     >

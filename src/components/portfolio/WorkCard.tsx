@@ -40,9 +40,9 @@ export function WorkCard({
       mm.add(MOTION_OK, () => {
         gsap.fromTo(
           root.current!.querySelector("[data-card-frame]"),
-          { clipPath: "inset(18% 0% 0% 0%)" },
+          { clipPath: "inset(18% 0% 0% 0% round 1.75rem)" },
           {
-            clipPath: "inset(0% 0% 0% 0%)",
+            clipPath: "inset(0% 0% 0% 0% round 1.75rem)",
             duration: 1.6,
             ease: "expo.out",
             scrollTrigger: { trigger: root.current, start: "top 92%", once: true },
@@ -95,7 +95,7 @@ export function WorkCard({
     <article ref={root} className={cn("group/card relative", className)}>
       <div
         data-card-frame
-        className={cn("relative overflow-hidden bg-ink-2", portrait ? "aspect-[4/5]" : "aspect-[3/2]", frameClassName)}
+        className={cn("card relative bg-ink-2", portrait ? "aspect-[4/5]" : "aspect-[3/2]", frameClassName)}
         onPointerEnter={enter}
         onPointerLeave={leave}
         onPointerMove={move}
@@ -128,18 +128,18 @@ export function WorkCard({
         <span
           ref={cursor}
           aria-hidden
-          className="label pointer-events-none absolute left-0 top-0 z-[2] -ml-11 -mt-11 flex h-22 w-22 scale-40 items-center justify-center rounded-full bg-paper text-ink opacity-0"
+          className="pointer-events-none absolute left-0 top-0 z-[2] -ml-12 -mt-12 flex h-24 w-24 scale-40 items-center justify-center gap-1.5 rounded-full bg-lime text-sm font-extrabold text-ink opacity-0"
         >
-          Play
+          <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-ink" /> Play
         </span>
 
-        <span className="label pointer-events-none absolute left-4 top-4 z-[2] text-paper/90">
+        <span className="chip pointer-events-none absolute left-4 top-4 z-[2] h-8 border-paper/20 bg-ink/50 px-3 font-mono text-xs backdrop-blur-md">
           {String(index + 1).padStart(2, "0")}
         </span>
         {project.isSample && <span className="sample-badge pointer-events-none absolute right-4 top-4 z-[2]">Sample</span>}
         {/* mobile play affordance */}
-        <span className="label pointer-events-none absolute bottom-4 left-4 z-[2] flex items-center gap-2 text-paper md:hidden">
-          <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-paper" /> Play film
+        <span className="pointer-events-none absolute bottom-4 left-4 z-[2] flex h-10 items-center gap-2 rounded-full bg-lime px-4 text-sm font-bold text-ink md:hidden">
+          <span className="h-0 w-0 border-y-[5px] border-l-[8px] border-y-transparent border-l-ink" /> Play
         </span>
       </div>
 
@@ -148,13 +148,13 @@ export function WorkCard({
           <p data-card-meta className="label">
             {categoryLabel(project.category)}
           </p>
-          <h3 data-card-meta className="display mt-2 text-[clamp(1.6rem,2.4vw,2.5rem)] leading-none">
-            <Link href={`/work/${project.slug}`} className="link-draw">
+          <h3 data-card-meta className="display mt-2 text-[clamp(1.6rem,2.4vw,2.5rem)] leading-none tracking-[-0.035em]">
+            <Link href={`/work/${project.slug}`} className="transition-colors duration-300 hover:text-lime">
               {project.title}
             </Link>
           </h3>
         </div>
-        <p data-card-meta className="label shrink-0 pt-0.5">
+        <p data-card-meta className="chip h-8 shrink-0 px-3 font-mono text-xs text-mute">
           {yearOf(project.date)}
         </p>
       </div>

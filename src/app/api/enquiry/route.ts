@@ -27,10 +27,10 @@ function emailHtml(e: Enquiry) {
     v
       ? `<tr><td style="padding:10px 16px 10px 0;color:#8a857d;font:12px/1.4 monospace;text-transform:uppercase;letter-spacing:.12em;vertical-align:top;white-space:nowrap">${k}</td><td style="padding:10px 0;color:#f5f3ef;font:15px/1.5 Arial,sans-serif">${esc(v)}</td></tr>`
       : "";
-  return `<!doctype html><html><body style="margin:0;background:#080808;padding:32px">
+  return `<!doctype html><html><body style="margin:0;background:#0e0e0e;padding:32px">
   <table role="presentation" width="100%" style="max-width:620px;margin:auto;background:#111;border:1px solid #2a2825">
-    <tr><td style="padding:28px 28px 8px;font:12px monospace;letter-spacing:.2em;color:#c6a76a">NEW ENQUIRY — REELCLICKS.IN</td></tr>
-    <tr><td style="padding:0 28px 8px;font:28px Georgia,serif;color:#f5f3ef">${esc(e.name)}</td></tr>
+    <tr><td style="padding:28px 28px 8px;font:12px monospace;letter-spacing:.2em;color:#d7ff3a">NEW ENQUIRY — REELCLICKS.IN</td></tr>
+    <tr><td style="padding:0 28px 8px;font:bold 28px Arial,sans-serif;color:#f4f1ea">${esc(e.name)}</td></tr>
     <tr><td style="padding:8px 28px 24px"><table role="presentation">
       ${row("Service", e.service)}
       ${row("Phone", e.phone)}

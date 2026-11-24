@@ -26,7 +26,7 @@ export function ServiceChapter({ service, variant }: { service: Service; variant
         {/* Number + title */}
         <div className={cn("md:col-span-12", variant === 2 && "md:text-center")}>
           <p className="label flex items-center gap-3" aria-hidden>
-            <span className="text-gold">{service.number}</span>
+            <span className="text-lime">{service.number}</span>
             <span className="h-px w-10 bg-line-strong" />
             Chapter {service.number}
           </p>
@@ -34,7 +34,7 @@ export function ServiceChapter({ service, variant }: { service: Service; variant
             as="h2"
             id={`svc-${service.slug}`}
             split="words"
-            className={cn("display mt-6 text-giant uppercase", variant === 2 ? "mx-auto max-w-[16ch]" : "max-w-[14ch]")}
+            className={cn("display mt-6 text-giant", variant === 2 ? "mx-auto max-w-[16ch]" : "max-w-[14ch]")}
           >
             {service.title}
           </RevealText>
@@ -81,7 +81,7 @@ export function ServiceChapter({ service, variant }: { service: Service; variant
           )}
         >
           <FadeIn>
-            <p className="display text-[clamp(1.5rem,2.2vw,2.1rem)] italic leading-tight text-gold-soft">{service.tagline}</p>
+            <p className="display text-[clamp(1.5rem,2.2vw,2.1rem)] leading-tight text-lime">{service.tagline}</p>
             {service.description.map((p, i) => (
               <p key={i} className="mt-5 leading-relaxed text-mute">
                 {p}
@@ -93,7 +93,7 @@ export function ServiceChapter({ service, variant }: { service: Service; variant
             <ul className="border-t border-line">
               {service.included.map((item) => (
                 <li key={item} data-li className="flex gap-4 border-b border-line py-3 text-paper/90">
-                  <span aria-hidden className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-gold" />
+                  <span aria-hidden className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-lime" />
                   {item}
                 </li>
               ))}
@@ -112,7 +112,7 @@ export function ServiceChapter({ service, variant }: { service: Service; variant
               >
                 WhatsApp
               </ButtonLink>
-              <Link href={`/services/${service.slug}`} className="label inline-flex items-center gap-2 px-2 text-paper hover:text-gold">
+              <Link href={`/services/${service.slug}`} className="label inline-flex items-center gap-2 px-2 text-paper hover:text-lime">
                 Details <ArrowUpRight size={14} />
               </Link>
             </div>

@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 let firstMount = true;
 
 /**
- * Page transition: each new page fades up from black while a thin gold line
+ * Page transition: each new page fades up from black while a thin lime line
  * sweeps across — a quick "cut" between scenes rather than a long wipe.
  */
 export default function Template({ children }: { children: React.ReactNode }) {
@@ -22,7 +22,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       {animate && (
         <motion.div
           aria-hidden
-          className="pointer-events-none fixed inset-x-0 top-0 z-[85] h-px origin-left bg-gold"
+          className="pointer-events-none fixed inset-x-0 top-0 z-[85] h-px origin-left bg-lime"
           initial={{ scaleX: 0, opacity: 1 }}
           animate={{ scaleX: 1, opacity: 0 }}
           transition={{ scaleX: { duration: 0.7, ease: [0.76, 0, 0.24, 1] }, opacity: { duration: 0.4, delay: 0.6 } }}

@@ -11,6 +11,7 @@ import { Coverage } from "@/components/sections/Coverage";
 import { TeamGrid } from "@/components/sections/TeamSection";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ContactCTA } from "@/components/sections/ContactCTA";
+import { TickerBand } from "@/components/sections/TickerBand";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { RevealText } from "@/components/animations/RevealText";
 import { ButtonLink } from "@/components/ui/Button";
@@ -40,20 +41,21 @@ export default async function HomePage() {
 
   return (
     <>
-      <Hero home={home} />
+      <Hero home={home} reels={[...all.filter((p) => p.orientation === "portrait"), ...all].slice(0, 3)} />
+      <TickerBand items={services.map((s) => s.shortTitle)} />
       <BrandStory home={home} />
       <ShowreelSection reel={reel} />
       <SelectedWorks projects={featured} total={all.length} />
 
-      <section data-section="Services" aria-labelledby="services-title" className="relative py-24 md:py-36">
+      <section data-section="Services" aria-labelledby="services-title" className="relative py-16 md:py-28">
         <div className="shell">
-          <div className="mb-16 grid items-end gap-10 md:mb-24 md:grid-cols-12">
+          <div className="mb-12 grid items-end gap-10 md:mb-16 md:grid-cols-12">
             <div className="md:col-span-7">
               <SectionLabel index="005" title="What we make" />
-              <RevealText as="h2" id="services-title" className="display mt-10 text-giant uppercase">
+              <RevealText as="h2" id="services-title" className="display mt-8 text-giant">
                 Eight ways
                 <br />
-                to tell a <em className="text-gold-soft">story.</em>
+                to tell a <em>story.</em>
               </RevealText>
             </div>
             <p className="max-w-sm text-mute md:col-span-4 md:col-start-9">
@@ -66,15 +68,15 @@ export default async function HomePage() {
 
       <Coverage index="006" />
 
-      <section data-section="The team" aria-labelledby="team-title" className="relative py-24 md:py-36">
+      <section data-section="The team" aria-labelledby="team-title" className="relative py-16 md:py-28">
         <div className="shell">
-          <div className="mb-16 flex flex-wrap items-end justify-between gap-8 md:mb-24">
+          <div className="mb-12 flex flex-wrap items-end justify-between gap-8 md:mb-16">
             <div>
               <SectionLabel index="007" title="Behind the lens" />
-              <RevealText as="h2" id="team-title" className="display mt-10 text-giant uppercase">
+              <RevealText as="h2" id="team-title" className="display mt-8 text-giant">
                 The people
                 <br />
-                behind the <em className="text-gold-soft">lens.</em>
+                behind the <em>lens.</em>
               </RevealText>
             </div>
             <ButtonLink href="/team" variant="outline">

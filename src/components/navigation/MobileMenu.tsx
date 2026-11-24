@@ -87,10 +87,10 @@ export function MobileMenu({
                         aria-current={isActive(l.href) ? "page" : undefined}
                         className="flex items-baseline justify-between py-3.5"
                       >
-                        <span className={cn("display text-[clamp(2.4rem,11vw,4rem)]", isActive(l.href) && "italic text-gold-soft")}>
+                        <span className={cn("display text-[clamp(2.4rem,11vw,4rem)] tracking-[-0.04em]", isActive(l.href) && "text-lime")}>
                           {l.label}
                         </span>
-                        <span className="label">0{i + 1}</span>
+                        <span className="font-mono text-xs text-mute-2">0{i + 1}</span>
                       </Link>
                     </motion.div>
                   </li>
@@ -109,7 +109,7 @@ export function MobileMenu({
                 href={whatsappHref(site.people.founder.whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-14 w-full items-center justify-center gap-3 rounded-full bg-gold font-mono text-xs uppercase tracking-[0.18em] text-ink"
+                className="flex h-14 w-full items-center justify-center gap-3 rounded-full bg-lime text-base font-bold text-ink"
               >
                 <WhatsAppIcon /> Enquire on WhatsApp
               </a>

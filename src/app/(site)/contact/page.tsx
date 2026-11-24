@@ -28,9 +28,9 @@ export default async function ContactPage() {
       <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} />
       <section data-section="Contact" aria-labelledby="contact-title" className="pb-24 pt-[calc(var(--header-h)+5rem)] md:pb-36 md:pt-[calc(var(--header-h)+8rem)]">
         <div className="shell">
-          <SectionLabel index="001" title="Contact" tone="gold" />
-          <RevealText as="h1" id="contact-title" split="words" trigger="intro" className="display mt-10 max-w-[16ch] text-mega uppercase">
-            Your story deserves to be <em className="text-gold-soft">seen.</em>
+          <SectionLabel index="001" title="Contact" tone="lime" />
+          <RevealText as="h1" id="contact-title" split="words" trigger="intro" className="display mt-10 max-w-[16ch] text-mega">
+            Your story deserves to be <em>seen.</em>
           </RevealText>
           <FadeIn className="mt-10 max-w-xl text-lead leading-snug text-paper/80" delay={0.3}>
             Have a moment, brand or story worth capturing? Let&apos;s create something unforgettable.
@@ -42,12 +42,12 @@ export default async function ContactPage() {
               <div className="space-y-10 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
                 {people.map((p) => (
                   <div key={p.phone} className="border-t border-line pt-6">
-                    <p className="label text-gold">{p.role}</p>
+                    <p className="label text-lime">{p.role}</p>
                     <p className="display mt-2 text-3xl">{p.name}</p>
                     <div className="mt-5 flex flex-wrap gap-3">
                       <a
                         href={telHref(p.phone)}
-                        className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 font-mono text-[0.68rem] uppercase tracking-[0.14em] hover:border-gold hover:text-gold-soft"
+                        className="inline-flex h-11 items-center gap-2.5 rounded-full border border-line-strong px-5 text-sm font-bold hover:border-paper hover:bg-paper hover:text-ink"
                       >
                         <Phone size={14} strokeWidth={1.5} /> {formatPhone(p.phone)}
                       </a>
@@ -56,7 +56,7 @@ export default async function ContactPage() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`WhatsApp ${p.name}`}
-                        className="inline-flex h-11 items-center gap-2.5 rounded-full bg-gold px-5 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-ink hover:bg-gold-soft"
+                        className="inline-flex h-11 items-center gap-2.5 rounded-full bg-lime px-5 text-sm font-bold text-ink hover:bg-paper"
                       >
                         <WhatsAppIcon size={15} /> WhatsApp
                       </a>
@@ -67,16 +67,16 @@ export default async function ContactPage() {
                 <ul className="space-y-4 border-t border-line pt-6 text-mute">
                   <li>
                     <a href={mailHref()} className="flex items-center gap-3 break-all hover:text-paper">
-                      <Mail size={16} strokeWidth={1.5} className="shrink-0 text-gold" /> {site.email}
+                      <Mail size={16} strokeWidth={1.5} className="shrink-0 text-lime" /> {site.email}
                     </a>
                   </li>
                   <li>
                     <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-paper">
-                      <InstagramIcon size={16} className="shrink-0 text-gold" /> {site.instagram.handle}
+                      <InstagramIcon size={16} className="shrink-0 text-lime" /> {site.instagram.handle}
                     </a>
                   </li>
                   <li className="flex items-start gap-3">
-                    <MapPin size={16} strokeWidth={1.5} className="mt-1 shrink-0 text-gold" />
+                    <MapPin size={16} strokeWidth={1.5} className="mt-1 shrink-0 text-lime" />
                     <span>
                       {site.locations.join(", ")}
                       <br />

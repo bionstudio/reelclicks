@@ -7,68 +7,82 @@ import { InstagramIcon, WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { FadeIn } from "@/components/animations/Motion";
 
 export function ContactCTA({ index = "008", context }: { index?: string; context?: string }) {
+  const contacts = [
+    {
+      label: `Founder — ${site.people.founder.name}`,
+      href: telHref(site.people.founder.phone),
+      text: formatPhone(site.people.founder.phone),
+      icon: <Phone size={16} strokeWidth={2} />,
+    },
+    {
+      label: `CEO — ${site.people.ceo.name}`,
+      href: telHref(site.people.ceo.phone),
+      text: formatPhone(site.people.ceo.phone),
+      icon: <Phone size={16} strokeWidth={2} />,
+    },
+    { label: "Email", href: mailHref(), text: site.email },
+    {
+      label: "Instagram",
+      href: site.instagram.url,
+      text: site.instagram.handle,
+      icon: <InstagramIcon size={17} />,
+      external: true,
+    },
+  ];
+
   return (
-    <section data-section="Your story" aria-labelledby="cta-title" className="relative overflow-hidden py-28 md:py-44">
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_60%,rgb(198_167_106/0.08),transparent_70%)]" />
-      <div className="shell relative">
-        <SectionLabel index={index} title="Your story" tone="gold" />
-        <RevealText as="h2" id="cta-title" split="words" className="display mt-10 text-mega uppercase">
-          Your story deserves to be <em className="text-gold-soft">seen.</em>
-        </RevealText>
+    <section data-section="Your story" aria-labelledby="cta-title" className="relative py-16 md:py-24">
+      <div className="shell">
+        <div className="relative overflow-hidden rounded-[2rem] bg-lime px-6 py-14 text-ink md:rounded-[2.75rem] md:px-14 md:py-20">
+          {/* decorative play mark */}
+          <svg aria-hidden viewBox="0 0 100 100" className="pointer-events-none absolute -right-16 -top-16 h-[22rem] w-[22rem] text-ink/[0.07] md:h-[34rem] md:w-[34rem]">
+            <circle cx="50" cy="50" r="48" fill="currentColor" />
+            <path d="M40 30 L72 50 L40 70 Z" fill="var(--color-lime)" />
+          </svg>
 
-        <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12">
-          <p className="text-lead leading-snug text-paper/85 md:col-span-5">
-            Have a moment, brand or story worth capturing? Let&apos;s create something unforgettable.
-          </p>
+          <div className="relative">
+            <SectionLabel index={index} title="Your story" tone="dark" />
+            <RevealText as="h2" id="cta-title" split="words" className="display mt-8 max-w-[13ch] text-mega">
+              Got a story? Let&apos;s shoot it.
+            </RevealText>
 
-          <FadeIn className="md:col-span-6 md:col-start-7" selector="[data-cta-item]" stagger={0.06}>
-            <div data-cta-item className="flex flex-wrap gap-3">
-              <ButtonLink href="/contact" variant="gold">
-                Start your enquiry
-              </ButtonLink>
-              <ButtonLink
-                href={whatsappHref(site.people.founder.whatsapp, context)}
-                variant="outline"
-                icon={<WhatsAppIcon size={16} />}
-              >
-                WhatsApp
-              </ButtonLink>
+            <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-12">
+              <p className="text-lead font-medium leading-snug text-ink/80 md:col-span-5">
+                Have a moment, brand or story worth capturing? Let&apos;s create something unforgettable.
+              </p>
+
+              <FadeIn className="md:col-span-7 md:col-start-6 lg:col-span-6 lg:col-start-7" selector="[data-cta-item]" stagger={0.06}>
+                <div data-cta-item className="flex flex-wrap gap-3">
+                  <ButtonLink href="/contact" variant="dark">
+                    Start your enquiry
+                  </ButtonLink>
+                  <ButtonLink
+                    href={whatsappHref(site.people.founder.whatsapp, context)}
+                    variant="outline-dark"
+                    icon={<WhatsAppIcon size={17} />}
+                  >
+                    WhatsApp
+                  </ButtonLink>
+                </div>
+                <dl data-cta-item className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {contacts.map((c) => (
+                    <div key={c.label} className="rounded-2xl bg-ink/[0.07] p-4 transition-colors hover:bg-ink/[0.12]">
+                      <dt className="text-xs font-bold uppercase tracking-[0.06em] text-ink/60">{c.label}</dt>
+                      <dd className="mt-1.5">
+                        <a
+                          href={c.href}
+                          {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                          className="inline-flex items-center gap-2 break-all text-lg font-bold"
+                        >
+                          {c.icon} {c.text}
+                        </a>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </FadeIn>
             </div>
-            <dl data-cta-item className="mt-12 grid grid-cols-1 gap-8 border-t border-line pt-8 sm:grid-cols-2">
-              <div>
-                <dt className="label">Founder — {site.people.founder.name}</dt>
-                <dd className="mt-2">
-                  <a href={telHref(site.people.founder.phone)} className="link-draw inline-flex items-center gap-2 text-lg">
-                    <Phone size={15} strokeWidth={1.5} className="text-gold" /> {formatPhone(site.people.founder.phone)}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="label">CEO — {site.people.ceo.name}</dt>
-                <dd className="mt-2">
-                  <a href={telHref(site.people.ceo.phone)} className="link-draw inline-flex items-center gap-2 text-lg">
-                    <Phone size={15} strokeWidth={1.5} className="text-gold" /> {formatPhone(site.people.ceo.phone)}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="label">Email</dt>
-                <dd className="mt-2">
-                  <a href={mailHref()} className="link-draw break-all text-lg">
-                    {site.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="label">Instagram</dt>
-                <dd className="mt-2">
-                  <a href={site.instagram.url} target="_blank" rel="noopener noreferrer" className="link-draw inline-flex items-center gap-2 text-lg">
-                    <InstagramIcon size={16} className="text-gold" /> {site.instagram.handle}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </FadeIn>
+          </div>
         </div>
       </div>
     </section>

@@ -40,84 +40,76 @@ export function SiteHeader() {
     <>
       <a
         href="#main"
-        className="label fixed left-4 top-4 z-[120] -translate-y-24 bg-paper px-4 py-3 text-ink focus:translate-y-0"
+        className="label fixed left-4 top-4 z-[120] -translate-y-24 rounded-full bg-lime px-4 py-3 text-ink focus:translate-y-0"
       >
         Skip to content
       </a>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-[80] transition-[transform,background-color,border-color,backdrop-filter] duration-700 ease-[var(--ease-out-expo)]",
-          hidden && !open ? "-translate-y-full" : "translate-y-0",
-          scrolled && !open ? "border-b border-line bg-ink/75 backdrop-blur-xl" : "border-b border-transparent",
+          "fixed inset-x-0 top-0 z-[80] transition-transform duration-700 ease-[var(--ease-out-expo)]",
+          hidden && !open ? "-translate-y-[120%]" : "translate-y-0",
         )}
       >
-        <div className="shell flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href="/" className="relative z-[2] text-[1.45rem] leading-none md:text-[1.6rem]" aria-label="REELCLICKS.IN — home">
-            <Wordmark />
-          </Link>
+        <div className="shell flex h-[var(--header-h)] items-center">
+          <div
+            className={cn(
+              "flex w-full items-center justify-between gap-6 rounded-full border py-2 pl-5 pr-2 transition-[background-color,border-color,backdrop-filter] duration-700",
+              scrolled && !open ? "border-line bg-ink/70 backdrop-blur-xl" : "border-transparent bg-transparent",
+            )}
+          >
+            <Link href="/" className="relative z-[2] text-[1.35rem] leading-none md:text-[1.5rem]" aria-label="REELCLICKS.IN — home">
+              <Wordmark />
+            </Link>
 
-          <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-9">
-              {navLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    aria-current={isActive(l.href) ? "page" : undefined}
-                    className="group/nav relative flex items-center gap-2 py-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-paper/80 transition-colors hover:text-paper"
-                  >
-                    <span
-                      aria-hidden
+            <nav aria-label="Primary" className="hidden lg:block">
+              <ul className="flex items-center gap-1 rounded-full border border-line bg-ink-2/80 p-1 backdrop-blur-xl">
+                {navLinks.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      aria-current={isActive(l.href) ? "page" : undefined}
                       className={cn(
-                        "h-1 w-1 rounded-full bg-gold transition-all duration-500",
-                        isActive(l.href) ? "scale-100 opacity-100" : "scale-0 opacity-0 group-hover/nav:scale-100 group-hover/nav:opacity-100",
+                        "group/nav relative flex h-10 items-center rounded-full px-4 text-[0.9rem] font-semibold transition-colors duration-300",
+                        isActive(l.href) ? "bg-paper text-ink" : "text-paper/75 hover:bg-paper/10 hover:text-paper",
                       )}
-                    />
-                    <span className="relative block overflow-hidden">
-                      <span className="block transition-transform duration-500 ease-[var(--ease-cine)] group-hover/nav:-translate-y-full">
-                        {l.label}
-                      </span>
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 block translate-y-full text-gold-soft transition-transform duration-500 ease-[var(--ease-cine)] group-hover/nav:translate-y-0"
-                      >
-                        {l.label}
-                      </span>
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          <div className="flex items-center gap-3">
-            <div className="hidden lg:block">
-              <ButtonLink href="/contact" variant="outline" className="h-11 px-6">
-                Let&apos;s talk
-              </ButtonLink>
+            <div className="flex items-center gap-3">
+              <div className="hidden lg:block">
+                <ButtonLink href="/contact" variant="lime" className="h-12">
+                  Let&apos;s talk
+                </ButtonLink>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpen((o) => !o)}
+                aria-expanded={open}
+                aria-controls="mobile-menu"
+                aria-label={open ? "Close menu" : "Open menu"}
+                className="relative z-[2] flex h-12 w-12 items-center justify-center rounded-full bg-lime text-ink lg:hidden"
+              >
+                <span className="relative block h-3 w-5">
+                  <span
+                    className={cn(
+                      "absolute left-0 h-[2px] w-5 rounded bg-ink transition-all duration-500 ease-[var(--ease-cine)]",
+                      open ? "top-1.5 rotate-45" : "top-0",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "absolute left-0 h-[2px] rounded bg-ink transition-all duration-500 ease-[var(--ease-cine)]",
+                      open ? "top-1.5 w-5 -rotate-45" : "top-3 w-3",
+                    )}
+                  />
+                </span>
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen((o) => !o)}
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
-              className="relative z-[2] flex h-11 w-11 items-center justify-center rounded-full border border-line-strong lg:hidden"
-            >
-              <span className="relative block h-3 w-5">
-                <span
-                  className={cn(
-                    "absolute left-0 h-px w-5 bg-paper transition-all duration-500 ease-[var(--ease-cine)]",
-                    open ? "top-1.5 rotate-45" : "top-0",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "absolute left-0 h-px bg-paper transition-all duration-500 ease-[var(--ease-cine)]",
-                    open ? "top-1.5 w-5 -rotate-45" : "top-3 w-3",
-                  )}
-                />
-              </span>
-            </button>
           </div>
         </div>
       </header>

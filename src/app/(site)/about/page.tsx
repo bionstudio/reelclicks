@@ -41,7 +41,7 @@ export default function AboutPage() {
         label="About"
         title={
           <>
-            We turn visions into <em className="text-gold-soft">visual stories.</em>
+            We turn visions into <em>visual stories.</em>
           </>
         }
         intro="REELCLICKS.IN is a creative content and cinematic reels agency. We produce wedding films, brand stories, corporate productions and premium social content for individuals, couples, businesses, brands and event organisers."
@@ -53,8 +53,8 @@ export default function AboutPage() {
         <div className="shell grid gap-16 md:grid-cols-12">
           <div className="md:col-span-5">
             <SectionLabel index="002" title="Philosophy" />
-            <RevealText as="h2" id="philosophy-title" className="display mt-10 text-big uppercase">
-              More than <em className="text-gold-soft">documentation.</em>
+            <RevealText as="h2" id="philosophy-title" className="display mt-10 text-big">
+              More than <em>documentation.</em>
             </RevealText>
           </div>
           <div className="md:col-span-6 md:col-start-7">
@@ -91,7 +91,7 @@ export default function AboutPage() {
             },
           ].map((b, i) => (
             <FadeIn key={b.k} className={`py-16 md:py-24 ${i === 0 ? "md:border-r md:border-line md:pr-[var(--gutter)]" : "border-t border-line md:border-t-0 md:pl-[var(--gutter)]"}`}>
-              <p className="label text-gold">{b.k}</p>
+              <p className="label text-lime">{b.k}</p>
               <h2 className="display mt-6 text-[clamp(2rem,3.4vw,3.5rem)] leading-[1.02]">{b.h}</h2>
               <p className="mt-6 max-w-md text-mute">{b.p}</p>
             </FadeIn>
@@ -100,18 +100,18 @@ export default function AboutPage() {
       </section>
 
       {/* Approach */}
-      <section data-section="Approach" aria-labelledby="approach-title" className="border-t border-line py-24 md:py-36">
+      <section data-section="Approach" aria-labelledby="approach-title" className="border-t border-line py-16 md:py-28">
         <div className="shell">
           <SectionLabel index="004" title="Production approach" />
-          <RevealText as="h2" id="approach-title" className="display mt-10 text-giant uppercase">
+          <RevealText as="h2" id="approach-title" className="display mt-10 text-giant">
             From first call
             <br />
-            to <em className="text-gold-soft">final cut.</em>
+            to <em>final cut.</em>
           </RevealText>
           <FadeIn as="ol" className="mt-16 grid border-t border-line md:mt-24 md:grid-cols-5" selector="li" stagger={0.08}>
             {approach.map((s) => (
               <li key={s.n} className="border-b border-line py-8 md:border-b-0 md:border-r md:px-6 md:py-10 md:first:pl-0 md:last:border-r-0">
-                <p className="label text-gold">{s.n}</p>
+                <p className="label text-lime">{s.n}</p>
                 <h3 className="display mt-6 text-4xl">{s.t}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-mute">{s.d}</p>
               </li>

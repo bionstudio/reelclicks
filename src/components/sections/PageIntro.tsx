@@ -26,7 +26,7 @@ export function PageIntro({
     <header data-section={label} className="relative pb-16 pt-[calc(var(--header-h)+5rem)] md:pb-24 md:pt-[calc(var(--header-h)+8rem)]">
       <div className="shell">
         <SectionLabel index={index} title={label} />
-        <RevealText as="h1" split="words" trigger="intro" className="display mt-10 max-w-[18ch] text-mega uppercase md:mt-14">
+        <RevealText as="h1" split="words" trigger="intro" className="display mt-10 max-w-[18ch] text-mega md:mt-14">
           {title}
         </RevealText>
         {(intro || aside) && (

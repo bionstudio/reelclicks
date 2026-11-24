@@ -14,27 +14,27 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#080808",
-          color: "#F5F3EF",
+          background: "#0E0E0E",
+          color: "#F4F1EA",
           padding: "64px 72px",
-          fontFamily: "serif",
+          fontFamily: "sans-serif",
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 18, letterSpacing: 4, color: "#A5A19A" }}>
-          <span>FR.001 — EVERY FRAME HAS A STORY</span>
-          <span style={{ color: "#C6A76A" }}>● REC</span>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, letterSpacing: 2, color: "rgba(244,241,234,0.6)" }}>
+          <span>EVERY FRAME HAS A STORY</span>
+          <span style={{ color: "#D7FF3A" }}>● REC</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", alignItems: "flex-start", fontSize: 150, letterSpacing: -4, lineHeight: 1 }}>
-            REELCLICKS
-            <span style={{ fontSize: 40, color: "#C6A76A", marginLeft: 8, marginTop: 18, letterSpacing: 2 }}>.IN</span>
+          <div style={{ display: "flex", alignItems: "flex-end", fontSize: 160, fontWeight: 800, letterSpacing: -8, lineHeight: 1 }}>
+            reelclicks
+            <span style={{ color: "#D7FF3A" }}>.in</span>
           </div>
-          <div style={{ display: "flex", height: 1, background: "#C6A76A", width: 420, marginTop: 28 }} />
-          <div style={{ display: "flex", fontSize: 40, fontStyle: "italic", color: "#E7D8B5", marginTop: 28 }}>
+          <div style={{ display: "flex", height: 8, borderRadius: 8, background: "#D7FF3A", width: 220, marginTop: 28 }} />
+          <div style={{ display: "flex", fontSize: 40, fontWeight: 700, color: "#0E0E0E", background: "#D7FF3A", padding: "4px 16px", borderRadius: 10, alignSelf: "flex-start", marginTop: 28 }}>
             Turning Moments Into Memories.
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 18, letterSpacing: 4, color: "#A5A19A" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, letterSpacing: 2, color: "rgba(244,241,234,0.6)" }}>
           <span>WEDDING FILMS · CINEMATIC REELS · BRAND FILMS</span>
           <span>ALL OVER MAHARASHTRA</span>
         </div>

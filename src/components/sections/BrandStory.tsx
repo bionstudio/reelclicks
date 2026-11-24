@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/Button";
 export function BrandStory({ home }: { home: HomeContent }) {
   const [portrait, landscape] = home.storyImages;
   return (
-    <section id="story" data-section="The story" aria-labelledby="story-title" className="relative py-28 md:py-44">
+    <section id="story" data-section="The story" aria-labelledby="story-title" className="relative py-20 md:py-32">
       <div className="shell">
         <SectionLabel index="002" title="The story" />
 
@@ -16,7 +16,7 @@ export function BrandStory({ home }: { home: HomeContent }) {
           as="h2"
           id="story-title"
           split="words"
-          className="display mt-10 max-w-[14ch] text-mega uppercase md:mt-14"
+          className="display mt-8 max-w-[14ch] text-mega md:mt-10"
         >
           {home.storyHeading}
         </RevealText>
@@ -27,10 +27,6 @@ export function BrandStory({ home }: { home: HomeContent }) {
             <RevealMask className="aspect-[4/5] w-full md:aspect-[3/4]" parallax={6}>
               <Picture image={portrait} sizes="(min-width: 768px) 40vw, 100vw" />
             </RevealMask>
-            <p className="label mt-4 flex justify-between">
-              <span>FR.002/A</span>
-              <span>Stillness</span>
-            </p>
           </div>
 
           {/* narrative + second image */}
@@ -44,7 +40,13 @@ export function BrandStory({ home }: { home: HomeContent }) {
                 </RevealMask>
               </Parallax>
               <div className="mt-8 flex flex-wrap items-center justify-between gap-6 md:ml-auto md:w-[88%]">
-                <p className="label max-w-[22rem]">Wedding films · Reels · Brand stories · Corporate · Events · Travel</p>
+                <ul className="flex max-w-[26rem] flex-wrap gap-2">
+                  {["Wedding films", "Reels", "Brand stories", "Corporate", "Events", "Travel"].map((t) => (
+                    <li key={t} className="chip h-8 px-3 text-[0.78rem] text-paper/80">
+                      {t}
+                    </li>
+                  ))}
+                </ul>
                 <ButtonLink href="/about" variant="outline">
                   Our approach
                 </ButtonLink>

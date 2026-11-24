@@ -15,14 +15,14 @@ export function Testimonials({ items, index = "007" }: { items: Testimonial[]; i
   if (!items.length) return null;
   const t = items[i]!;
   return (
-    <section data-section="Kind words" aria-labelledby="testimonials-title" className="relative py-24 md:py-36">
+    <section data-section="Kind words" aria-labelledby="testimonials-title" className="relative py-16 md:py-28">
       <div className="shell">
         <SectionLabel index={index} title="Kind words" />
         <h2 id="testimonials-title" className="sr-only">
           Client testimonials
         </h2>
         <div className="mt-14 grid gap-10 md:grid-cols-12">
-          <span aria-hidden className="display text-[8rem] leading-[0.6] text-gold md:col-span-1">
+          <span aria-hidden className="display text-[8rem] leading-[0.6] text-lime md:col-span-1">
             “
           </span>
           <div className="min-h-[16rem] md:col-span-10" aria-live="polite">
@@ -49,7 +49,7 @@ export function Testimonials({ items, index = "007" }: { items: Testimonial[]; i
               type="button"
               onClick={() => setI((i - 1 + items.length) % items.length)}
               aria-label="Previous testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-gold"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-lime"
             >
               <ArrowLeft size={16} strokeWidth={1.5} />
             </button>
@@ -57,7 +57,7 @@ export function Testimonials({ items, index = "007" }: { items: Testimonial[]; i
               type="button"
               onClick={() => setI((i + 1) % items.length)}
               aria-label="Next testimonial"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-gold"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-line-strong hover:border-lime"
             >
               <ArrowRight size={16} strokeWidth={1.5} />
             </button>

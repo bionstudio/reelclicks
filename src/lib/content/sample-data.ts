@@ -27,11 +27,12 @@ const v = (name: string) => ({
 /* ───────────────────────────── Home ───────────────────────────── */
 
 export const sampleHome: HomeContent = {
-  heroHeadingLines: ["We don't just", "capture moments."],
-  heroAccentLine: "We make them timeless.",
-  heroSupporting: "Crafting cinematic stories for people, brands and unforgettable moments.",
-  primaryCtaLabel: "Explore our work",
-  secondaryCtaLabel: "Let's create together",
+  heroHeadingLines: ["Reels & films", "that stop"],
+  heroAccentLine: "the scroll.",
+  heroSupporting:
+    "Cinematic wedding films, Instagram reels and brand content — crafted for people, brands and unforgettable moments.",
+  primaryCtaLabel: "See our work",
+  secondaryCtaLabel: "Book a shoot",
   heroVideo: { ...v("hero"), mobileSrc: "/videos/demo/hero-mobile.mp4" },
   heroPoster: img("bride-bouquet", "A bride holding a bouquet in soft, low window light"),
   heroIsSample: true,

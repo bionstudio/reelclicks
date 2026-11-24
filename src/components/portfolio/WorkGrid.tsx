@@ -9,14 +9,18 @@ import { WorkCard } from "./WorkCard";
 import { VideoLightbox } from "./VideoLightbox";
 
 /*
- * Editorial, asymmetric placement on a 12-column grid. The pattern repeats
- * every four projects; vertical offsets create a relaxed, magazine-like rhythm.
+ * Bento grid on 12 columns: a wide + narrow pair, then a row of three.
+ * Every tile in a row shares one height so the grid stays tight.
  */
+// Tablet: two equal columns (the fifth tile spans the row); desktop: the full bento.
+const TALL = "md:aspect-auto md:h-[clamp(20rem,38vw,38rem)]";
+const SHORT = "md:aspect-auto md:h-[20rem] lg:h-[clamp(18rem,30vw,30rem)]";
 const SLOTS = [
-  { cls: "md:col-span-7 md:col-start-1", sizes: "(min-width: 768px) 58vw, 100vw" },
-  { cls: "md:col-span-4 md:col-start-9 md:mt-[22vh]", sizes: "(min-width: 768px) 33vw, 100vw" },
-  { cls: "md:col-span-5 md:col-start-2 md:-mt-[6vh]", sizes: "(min-width: 768px) 42vw, 100vw" },
-  { cls: "md:col-span-6 md:col-start-7 md:mt-[10vh]", sizes: "(min-width: 768px) 50vw, 100vw" },
+  { cls: "md:col-span-6 lg:col-span-7", frame: TALL, sizes: "(min-width: 1024px) 58vw, (min-width: 768px) 50vw, 100vw" },
+  { cls: "md:col-span-6 lg:col-span-5", frame: TALL, sizes: "(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 100vw" },
+  { cls: "md:col-span-6 lg:col-span-4", frame: SHORT, sizes: "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" },
+  { cls: "md:col-span-6 lg:col-span-4", frame: SHORT, sizes: "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" },
+  { cls: "md:col-span-12 lg:col-span-4", frame: SHORT, sizes: "(min-width: 1024px) 33vw, 100vw" },
 ] as const;
 
 export function WorkGrid({ projects, showFilters = true }: { projects: Project[]; showFilters?: boolean }) {
@@ -54,12 +58,12 @@ export function WorkGrid({ projects, showFilters = true }: { projects: Project[]
                     aria-pressed={on}
                     onClick={() => choose(c.value)}
                     className={cn(
-                      "relative h-11 rounded-full border px-5 font-mono text-[0.68rem] uppercase tracking-[0.16em] transition-colors duration-500",
-                      on ? "border-gold bg-gold text-ink" : "border-line-strong text-mute hover:border-paper/50 hover:text-paper",
+                      "relative h-11 rounded-full border px-5 text-[0.9rem] font-semibold transition-colors duration-300",
+                      on ? "border-lime bg-lime text-ink" : "border-line-strong text-paper/75 hover:border-paper hover:text-paper",
                     )}
                   >
                     {c.label}
-                    <sup className={cn("ml-1.5", on ? "text-ink/60" : "text-gold")}>{count}</sup>
+                    <sup className={cn("ml-1.5 font-mono", on ? "text-ink/60" : "text-lime")}>{count}</sup>
                   </button>
                 </li>
               );
@@ -72,7 +76,7 @@ export function WorkGrid({ projects, showFilters = true }: { projects: Project[]
         Showing {visible.length} {visible.length === 1 ? "film" : "films"}
       </p>
 
-      <motion.ul layout className="grid grid-cols-1 gap-x-[var(--gutter)] gap-y-16 md:grid-cols-12 md:gap-y-24">
+      <motion.ul layout className="grid grid-cols-1 gap-x-4 gap-y-10 md:grid-cols-12 md:gap-x-5 md:gap-y-14">
         <AnimatePresence mode="popLayout" initial={false}>
           {visible.map((p, i) => {
             const slot = SLOTS[i % SLOTS.length]!;
@@ -84,13 +88,15 @@ export function WorkGrid({ projects, showFilters = true }: { projects: Project[]
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.97 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: Math.min(i, 6) * 0.04 }}
-                className={cn(
-                  slot.cls,
-                  // on phones, reels sit at 80% width alternating sides for rhythm
-                  p.orientation === "portrait" && (i % 2 ? "max-md:ml-[18%]" : "max-md:mr-[18%]"),
-                )}
+                className={slot.cls}
               >
-                <WorkCard project={p} index={projects.indexOf(p)} sizes={slot.sizes} onPlay={() => setActive(i)} />
+                <WorkCard
+                  project={p}
+                  index={projects.indexOf(p)}
+                  sizes={slot.sizes}
+                  frameClassName={slot.frame}
+                  onPlay={() => setActive(i)}
+                />
               </motion.li>
             );
           })}

@@ -59,14 +59,14 @@ export default async function ProjectPage({ params }: Props) {
 
       <header data-section="The film" className="pt-[calc(var(--header-h)+4rem)] md:pt-[calc(var(--header-h)+6rem)]">
         <div className="shell">
-          <Link href="/work" className="label inline-flex items-center gap-2 text-paper hover:text-gold">
+          <Link href="/work" className="label inline-flex items-center gap-2 text-paper hover:text-lime">
             <ArrowLeft size={14} /> All work
           </Link>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <SectionLabel index={String(i + 1).padStart(3, "0")} title={categoryLabel(project.category)} />
             {project.isSample && <span className="sample-badge">Sample project</span>}
           </div>
-          <RevealText as="h1" split="words" trigger="intro" className="display mt-8 text-mega uppercase">
+          <RevealText as="h1" split="words" trigger="intro" className="display mt-8 text-mega">
             {project.title}
           </RevealText>
         </div>
@@ -127,7 +127,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className="mt-12 flex flex-wrap gap-3">
               <ButtonLink
                 href={whatsappHref(site.people.founder.whatsapp, `a film like "${project.title}"`)}
-                variant="gold"
+                variant="lime"
                 icon={<WhatsAppIcon size={16} />}
               >
                 I want a film like this
@@ -165,10 +165,10 @@ export default async function ProjectPage({ params }: Props) {
           <Link href={`/work/${next.slug}`} className="group shell block py-20 md:py-28">
             <p className="label">Next film</p>
             <div className="mt-6 flex items-end justify-between gap-8">
-              <p className="display text-giant uppercase leading-none transition-colors duration-500 group-hover:text-gold-soft">
+              <p className="display text-giant leading-none transition-colors duration-500 group-hover:text-lime">
                 {next.title}
               </p>
-              <span className="mb-3 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line-strong transition-all duration-500 group-hover:rotate-45 group-hover:border-gold md:h-24 md:w-24">
+              <span className="mb-3 flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line-strong transition-all duration-500 group-hover:rotate-45 group-hover:border-lime md:h-24 md:w-24">
                 <ArrowUpRight strokeWidth={1.25} />
               </span>
             </div>
